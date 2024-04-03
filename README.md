@@ -27,6 +27,7 @@ use environment.yaml
 ```
 conda env create --file environment.yaml
 ```
+If the installed pytorch version does not match the installed cuda version, reinstall the appropriate pytorch.
 ### setup grounding dino
 Please note official pytorch implementation of grounding dino https://github.com/IDEA-Research/GroundingDINO
 
@@ -43,6 +44,7 @@ echo $CUDA_HOME
 ```
 And install the grounding dino
 ```
+conda activate groundascore
 pip install -e .
 ```
 Downloads weights

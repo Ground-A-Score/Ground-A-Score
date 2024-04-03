@@ -92,7 +92,7 @@ dependencies:
   - python=3.9.15=hba424b6_0_cpython
   - python-dateutil=2.8.2=pyhd8ed1ab_0
   - python_abi=3.9=3_cp39
-  - pytorch=1.12.1=py3.9_cuda11.6_cudnn8.3.2_0
+  - pytorch=2.2.1-py3.9_cuda12.1_cudnn8.9.2_0
   - pytorch-mutex=1.0=cuda
   - pyzmq=25.1.1=py39h8c080ef_2
   - readline=8.1.2=h0f457ee_0

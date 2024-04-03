@@ -1,0 +1,66 @@
+When you receive a description of how to change a given image and image, create sentences that
+represent the current and desired states of the picture. To do this, you use two arrays: source_list
+and target_list. Each array contains elements representing the objects or features to be changed,
+as many as requested, followed by a summarizing sentence of the scene. The list order should
+match the sequence of transformation requests. If objects are closely related (e.g., an animal lying
+on furniture), their relationship should be explicitly mentioned, even if it is not the last
+summarized sentence, ensuring the context is maintained throughout the transformation. When
+occurring the unnaturally severe change of an object’s material, only the material of the object is
+entered in target_list. full form has to be expressed only in the last sentence. 
+Additionally, you must decide whether each element’s original shape is preserved during the transformation. This
+decision is captured in the preserve_form array, where ’1’ indicates shape preservation, and ’0’
+indicates that the shape can change. The last number in this array reflects the overall preservation
+of form in the scene. The Preserve form uses a lot of resources, so if you’re not sure, leave it at 0.
+Example 1:
+Question:
+Apply the rules explained above. an image of a dog running in front of a car on the dirt is given.
+How should the source_list, target_list, and preserve_form arrays be structured?
+Requests: Change a dog into a cat. Change a car into a Lego car. Change the dirt into the asphalt road.
+Explanation: 
+The things requested to be changed in the image are a dog, a car and the dirt in the order requested. Image can be described with the things as "a dog running in front of a car on the dirt.". So, the source_list is ["a dog," "a car," "the dirt," "a dog running in front of a car on the dirt"]. The requested changes are to change a dog into a cat, a car into a Lego car, and the dirt into the asphalt road. Therefore, the target_list is ["a cat," "a Lego car," "the asphalt road," "A cat is running in front of a Lego car on the asphalt road."].
+The dog and the cat can take similar overall poses, so it is more natural to maintain the shape when converting a dog into a cat. The car’s form changes significantly as it becomes a Lego car. Asphalt and dirt have similar shapes, but since their shapes are simple, there is no need to force them to maintain their shape. Lastly, since the appearance of the car will change significantly, it is better not to force it to maintain the entire scene. Therefore, the preserve_form is [1,0,0,0].
+Final answer:
+source_list: ["a dog", "a car", "the dirt", "A dog is running in front of a car on the dirt."]
+target_list: ["a cat", "a Lego car", "the asphalt road", "A cat is running in front of a Lego car on the asphalt road."]
+preserve_form: [1, 0, 0, 0]
+Example 2: 
+Question:
+Apply the rules explained above. an image of a dog lying on the grass is given.
+How should the source_list, target_list, and preserve_form arrays be structured?
+Requests: change a dog into a tiger. Change the grass into the snow.
+Explanation: 
+The things requested to be changed in the image are a dog and the grass. The requested changes are to change a dog into a tiger and the grass into the snow. The transformation involves changing both the animal and the surface it lies on, maintaining a close relationship between the two. Since the dog and the grass are in close contact over a long area, the dog and grass, tiger and snow should express together. So, the source_list is ["the dog on the grass", "the grass", "The dog is lying on the grass."] and target_list is ["the tiger on the snow", "the snow", "The tiger is lying on the snow."].
+When changing a dog into a tiger, it is natural to maintain a lying position. When changing grass into
+snow, shape may change because It can change from a sharp grass shape to a smooth snowy shape.
+Cases where the shape can change are included, so the entire scene can also change shape. Therefore, the preserve_form is [1,0,0].
+Final answer:
+source_list: ["the dog on the grass", "the grass", "The dog is lying on the grass."]
+target_list: ["the tiger on the snow", "the snow", "The tiger is lying on the snow."]
+preserve_form: [1, 0, 0]
+Example 3: 
+Question:
+Apply the rules explained above. an image of a horse is standing near pond with its reflection visible, with the mountain
+in the background is given.
+Requests: Change horse and its reflection into ice horse and its reflection. Change the mountain into snowy mountain.
+Explanation: 
+The things requested to be changed in the image are horse and its reflection, and the mountain. Image can be described with the things as "A horse is standing near pond with its
+reflection visible, with a mountain in the background." . So, the source_list is ["a horse and its reflection", "a mountain", "A horse is standing near pond with its reflection visible, with a mountain in the background."]
+The requested changes are to change horse and its reflection into ice horse and its reflection and the mountain into snowy mountain. Because a severe change in material occurred from horse to ice horse, only material should be written in the target_list. So target_list is ["an ice and its reflection", "a snowy mountain", "Ice horse is standing near pond with its reflection visible, with a snowy mountain in the background."]
+Since the shape of the horse must be maintained, the first term of preserve_form is 1. 
+As snow accumulates, changes in shape may occur, so the second term is 0. Because the case
+where the shape can change is included, the third term is 0. Therefore, the preserve_form is [1,0,0].
+Final answer:
+source_list: ["a horse and its reflection", "a mountain", "A horse is standing near pond with its
+reflection visible, with a mountain in the background."]
+target_list: ["an ice and its reflection", "a snowy mountain", "Ice horse is standing near pond with its
+reflection visible, with a snowy mountain in the background."].
+preserve_form: [1, 0, 0]
+Question: Apply the rules explained above. Please refer to the picture and request below.
+How should the source_list, target_list, and preserve_form arrays be structured?
+request:{responses}
+Answer in the form of
+Explanation: ...
+Final answer: ...
+as in the examples above.
+
+

@@ -1,0 +1,25 @@
+As a researcher in image editing, your task is to review a provided photograph and identify three distinct elements within the image that could be modified using image editing techniques. Your suggestions should focus on altering tangible elements to enhance or transform the visual experience. 
+For example:
+If there is an animal present, suggest replacing it with a different animal (e.g., change a cat into a dog).
+If a particular object's color stands out, propose altering its color (e.g., change a black car into a red car).
+Consider transforming human figures into recognizable fictional characters (e.g., change a man into Iron Man).
+Additionally, you may suggest changes to the environment (e.g., change grass into snow) or the atmosphere (e.g., change a clear sky into a cloudy sky).
+However, ensure that each modification:
+Replaces one specific, tangible element with another.
+For example, instead of merely saying 'make the sky cloudy,' specify 'change the clear sky into the cloudy sky.'
+Avoids overlapping with other elements.
+Avoids altering elements that dominate the entire image.
+select objects of medium size for modification. Editing objects that are either too small or too large is not recommended.
+Ensures the transformation maintains a similar form for simplicity.
+Don't use form change X, A into B. use form change A into B
+Don't ask to change letters
+Format your suggestions like this: change = [change A into B. change C into D. change E into F.]
+
+
+
+
+
+
+
+
+

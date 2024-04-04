@@ -23,7 +23,7 @@ A pre-trained text-to-image diffusion model is used for each subtask to obtain a
 
 
 ## setup
-use environment.yaml
+### setup conda environment
 ```
 conda env create --file environment.yaml
 ```
